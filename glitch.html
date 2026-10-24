@@ -1,0 +1,29 @@
+<section class="page" data-page="glitch">
+  <div class="glass" id="g-panel">
+    <h2 class="neon-p">GLITCH LAB</h2>
+    <p class="mono mut" style="font-size:.66rem;margin-bottom:12px">Simulasi visual lokal. Tidak ada proses nyata yang dijalankan.</p>
+    <div class="bar full"><i id="g-bar"></i></div>
+    <div class="row" style="margin:8px 0 12px">
+      <span class="mono neon-g" id="g-pct">0%</span>
+      <span class="mono mut" id="g-state" style="font-size:.66rem">IDLE</span>
+    </div>
+    <div class="row wrap">
+      <button class="btn" type="button" id="g-run">START GLITCH</button>
+      <button class="btn alt sm" type="button" id="g-reset">RESET</button>
+    </div>
+  </div>
+
+  <div class="glass">
+    <h2 class="neon-c">STATUS INDICATORS</h2>
+    <div class="list">
+      <div class="item"><span class="ind"><span class="dot off" id="gi1"></span>BUFFER</span><span class="mono" id="gv1">IDLE</span></div>
+      <div class="item"><span class="ind"><span class="dot off" id="gi2"></span>SIGNAL</span><span class="mono" id="gv2">IDLE</span></div>
+      <div class="item"><span class="ind"><span class="dot off" id="gi3"></span>RENDER</span><span class="mono" id="gv3">IDLE</span></div>
+    </div>
+  </div>
+
+  <div class="glass">
+    <h2 class="neon-g">TERMINAL</h2>
+    <div class="term" id="g-term"></div>
+  </div>
+</section>

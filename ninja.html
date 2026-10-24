@@ -1,0 +1,24 @@
+<section class="page" data-page="ninja">
+  <div class="glass hero">
+    <h2 class="neon-p">NINJA CORE</h2>
+    <div class="stage-art" style="position:relative">
+      <canvas class="viz" id="n-canvas" style="position:absolute;inset:-10%;width:120%;height:120%;border:0;background:transparent"></canvas>
+      <div class="orbit-wrap"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div></div>
+      <div class="bh"><img class="bh-img" src="assets/images/blackhole.webp" alt="" onerror="this.remove()"></div>
+      <div class="ninja-box float"><img src="assets/images/ninja.webp" alt="Ninja" onerror="this.remove()"></div>
+    </div>
+  </div>
+
+  <div class="glass">
+    <h2 class="neon-c">CORE ENERGY</h2>
+    <div class="bar full"><i id="n-bar"></i></div>
+    <div class="row" style="margin:8px 0 12px">
+      <span class="mono neon-g" id="n-val">0%</span>
+      <span class="mono" id="n-state">STABLE</span>
+    </div>
+    <div class="row wrap">
+      <button class="btn" type="button" id="n-charge">CHARGE CORE</button>
+      <button class="btn alt sm" type="button" id="n-vent">VENT</button>
+    </div>
+  </div>
+</section>

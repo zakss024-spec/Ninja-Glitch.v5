@@ -1,0 +1,40 @@
+<section class="page" data-page="tools">
+  <div class="glass">
+    <h2 class="neon-c">TOOLS</h2>
+    <div class="tabs" id="t-tabs">
+      <button type="button" class="active" data-tool="scan">System Scan</button>
+      <button type="button" data-tool="signal">Signal Analyzer</button>
+      <button type="button" data-tool="device">Device Info</button>
+      <button type="button" data-tool="net">Network Viz</button>
+    </div>
+  </div>
+
+  <div class="glass" id="t-scan">
+    <h2 class="neon-g">SYSTEM SCAN</h2>
+    <div class="bar full"><i id="ts-bar"></i></div>
+    <div class="row" style="margin:8px 0"><span class="mono neon-g" id="ts-pct">0%</span><button class="btn sm" type="button" id="ts-run">RUN SCAN</button></div>
+    <div class="list" id="ts-list"></div>
+  </div>
+
+  <div class="glass" id="t-signal" hidden>
+    <h2 class="neon-p">SIGNAL ANALYZER</h2>
+    <canvas class="viz" id="sg-canvas"></canvas>
+    <div class="grid2" style="margin-top:10px">
+      <div class="item"><span>FREQ</span><b class="mono neon-c" id="sg-f">0 Hz</b></div>
+      <div class="item"><span>AMP</span><b class="mono neon-g" id="sg-a">0.0</b></div>
+    </div>
+    <p class="mono mut" style="font-size:.6rem;margin-top:8px">Gelombang sintetis, bukan sinyal nyata.</p>
+  </div>
+
+  <div class="glass" id="t-device" hidden>
+    <h2 class="neon-c">DEVICE INFO</h2>
+    <div class="kv" id="td-kv"></div>
+    <p class="mono mut" style="font-size:.6rem;margin-top:8px">Dibaca lokal dari browser, tidak dikirim ke mana pun.</p>
+  </div>
+
+  <div class="glass" id="t-net" hidden>
+    <h2 class="neon-g">NETWORK VISUALIZATION</h2>
+    <canvas class="viz" id="nv-canvas"></canvas>
+    <p class="mono mut" style="font-size:.6rem;margin-top:8px">Topologi simulasi. Tidak ada trafik jaringan nyata.</p>
+  </div>
+</section>
