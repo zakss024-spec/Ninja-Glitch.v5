@@ -1,0 +1,15 @@
+/* Scanlines overlay: add class "scanlines" to <body> */
+body.scanlines::after{
+  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0,rgba(0,0,0,.22) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:multiply;
+}
+body.scanlines::before{animation:flicker 7s infinite}
+body.scanlines .scan-sweep{
+  position:fixed;left:0;right:0;top:-20%;height:18%;z-index:59;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(0,240,255,.07),transparent);
+  animation:sweep 6s linear infinite;
+}
+@keyframes sweep{to{top:120%}}
+@keyframes flicker{0%,96%,100%{opacity:1}97%{opacity:.85}98%{opacity:1}99%{opacity:.9}}
+body.no-fx.scanlines::after,body.no-fx .scan-sweep{display:none}
