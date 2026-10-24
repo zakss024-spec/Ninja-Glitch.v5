@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05030a">
+<title>NINJA GLITCH // LOGIN</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="assets/effects/scanlines.css">
+</head>
+<body class="scanlines" data-screen="login">
+<canvas class="fx" id="fx"></canvas>
+<main class="screen">
+
+  <!-- STAGE 1: LOGIN -->
+  <section class="stage stage-in" id="stage-login">
+    <div class="stage-art sm">
+      <div class="bh"><img class="bh-img" src="assets/images/blackhole.webp" alt="" onerror="this.remove()"></div>
+      <div class="ninja-box float"><img src="assets/images/ninja.webp" alt="Ninja" onerror="this.remove()"></div>
+    </div>
+    <h1 class="title glitch" data-text="ACCESS PORTAL">ACCESS PORTAL</h1>
+    <p class="sub mono">LOCAL SIMULATION LOGIN</p>
+    <form class="glass stage" id="login-form" autocomplete="off" novalidate>
+      <div class="field">
+        <label for="username">USERNAME</label>
+        <input id="username" type="text" maxlength="40" placeholder="username" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="password">PASSWORD</label>
+        <input id="password" type="password" maxlength="40" placeholder="••••••••" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="off">
+      </div>
+      <div class="err" id="login-err" role="alert"></div>
+      <button class="btn block" type="submit" id="login-btn">ENTER SYSTEM</button>
+      <p class="mono mut" style="font-size:.6rem">Diproses lokal di browser. Huruf besar/kecil berpengaruh.</p>
+    </form>
+  </section>
+
+  <!-- STAGE 2: FINGERPRINT -->
+  <section class="stage" id="stage-scan" hidden>
+    <h1 class="title glitch" data-text="BIOMETRIC SCAN">BIOMETRIC SCAN</h1>
+    <p class="sub mono">TAP THE SENSOR</p>
+    <button class="fp" id="fp" type="button" aria-label="Fingerprint sensor">
+      <span class="fill" id="fp-fill"></span>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 6C18 6 9 16 9 28v8"/>
+        <path d="M32 6c14 0 23 10 23 22v10"/>
+        <path d="M32 14c-9 0-15 6-15 15v12c0 5-2 8-4 11"/>
+        <path d="M32 14c9 0 15 6 15 15v8"/>
+        <path d="M32 22c-5 0-8 3-8 8v10c0 6-2 10-5 14"/>
+        <path d="M32 22c5 0 8 3 8 8v12c0 5 1 9 3 12"/>
+        <path d="M32 30v14c0 6-1 9-3 13"/>
+        <path d="M47 46c0 4 1 8 3 11"/>
+      </svg>
+      <span class="scan"></span>
+    </button>
+    <div class="fp-pct neon-c mono" id="fp-pct">0%</div>
+    <div class="fp-status neon-g mono" id="fp-status">AWAITING INPUT</div>
+  </section>
+
+  <!-- STAGE 3: NINJA LOADING -->
+  <section class="stage" id="stage-load" hidden>
+    <div class="stage-art">
+      <div class="orbit-wrap"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div></div>
+      <div class="bh"><img class="bh-img" src="assets/images/blackhole.webp" alt="" onerror="this.remove()"></div>
+      <div class="ninja-box float"><img src="assets/images/ninja.webp" alt="Ninja" onerror="this.remove()"></div>
+    </div>
+    <h1 class="title glitch" data-text="NINJA CORE">NINJA CORE</h1>
+    <p class="sub mono" id="load-sub">BOOTING CORE</p>
+    <div class="bar"><i id="load-bar"></i></div>
+    <div class="pct mono" id="load-pct">0%</div>
+    <button class="btn alt" id="load-skip" type="button">SKIP</button>
+  </section>
+
+</main>
+<script src="storage.js"></script>
+<script src="animation.js"></script>
+<script src="assets/effects/particles.js"></script>
+<script src="fingerprint.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

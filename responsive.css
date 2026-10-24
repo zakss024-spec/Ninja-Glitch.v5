@@ -1,0 +1,27 @@
+/* NINJA GLITCH - responsive tweaks (base styles are mobile-first) */
+@media (max-width:360px){
+  .modules,.quick{grid-template-columns:1fr}
+  .title{letter-spacing:.08em}
+  .nav button{font-size:.5rem;letter-spacing:.08em}
+}
+@media (min-width:640px){
+  .view{padding:20px 20px 130px}
+  .modules{grid-template-columns:repeat(3,1fr)}
+  .module.wide{grid-column:auto}
+  .quick{grid-template-columns:repeat(4,1fr)}
+  .stage-art{width:320px}
+  canvas.viz{height:240px}
+  .term{height:230px}
+}
+@media (min-width:1024px){
+  .view{max-width:900px}
+  .nav{width:480px}
+}
+@media (max-height:620px){
+  .screen{justify-content:flex-start;padding-top:16px}
+  .stage-art{width:150px}
+  .fp{width:130px;height:130px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

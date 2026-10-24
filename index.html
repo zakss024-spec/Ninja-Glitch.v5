@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05030a">
+<title>NINJA GLITCH</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="assets/effects/scanlines.css">
+</head>
+<body class="scanlines" data-screen="intro">
+<canvas class="fx" id="fx"></canvas>
+<main class="screen">
+  <div class="stage-art">
+    <div class="bh"><img class="bh-img" src="assets/images/blackhole.webp" alt="" onerror="this.remove()"></div>
+    <div class="ninja-box float"><img src="assets/images/ninja.webp" alt="Ninja" onerror="this.remove()"></div>
+  </div>
+  <h1 class="title glitch" data-text="NINJA GLITCH">NINJA GLITCH</h1>
+  <p class="sub mono" id="intro-sub">INITIALIZING SYSTEM</p>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="pct mono" id="pct">0%</div>
+  <button class="btn alt" id="skip" type="button">SKIP INTRO</button>
+  <footer class="credit-mini mono">DEVELOPER ZAKSS · DEVELOPER DAKA · DEVELOPER NATHAN</footer>
+</main>
+
+<!-- Intro controller: self-contained (no dependency on other scripts) so the intro can never get stuck -->
+<script>
+(function () {
+  var DURATION = 5000;   /* progress 0 -> 100 */
+  var MAX_WAIT = 8000;   /* hard fallback: always continue to LOGIN */
+  var done = false, iv = null;
+
+  function go() {
+    if (done) return;
+    done = true;
+    if (iv) clearInterval(iv);
+    try { window.location.href = 'login.html'; } catch (e) { window.location.replace('login.html'); }
+  }
+  /* safety net starts immediately, even before the DOM is ready */
+  setTimeout(go, MAX_WAIT);
+
+  function init() {
+    var bar = document.getElementById('bar');
+    var pct = document.getElementById('pct');
+    var sub = document.getElementById('intro-sub');
+    var skip = document.getElementById('skip');
+    var msgs = ['INITIALIZING SYSTEM', 'MOUNTING BLACK HOLE', 'SYNCING NINJA CORE', 'SYSTEM READY'];
+
+    if (skip) {
+      var lastTap = 0;
+      var onSkip = function (e) {
+        var n = Date.now();
+        if (n - lastTap < 400) return;
+        lastTap = n;
+        if (e && e.cancelable) e.preventDefault();
+        go();
+      };
+      skip.addEventListener('click', onSkip);
+      skip.addEventListener('touchend', onSkip, { passive: false });
+    }
+
+    var t0 = Date.now();
+    function tick() {
+      var p = Math.min(100, Math.floor((Date.now() - t0) / DURATION * 100));
+      if (bar) bar.style.width = p + '%';
+      if (pct) pct.textContent = p + '%';
+      if (sub) sub.textContent = msgs[Math.min(3, Math.floor(p / 26))];
+      if (p >= 100) { clearInterval(iv); setTimeout(go, 350); }
+    }
+    tick();
+    iv = setInterval(tick, 40);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script src="storage.js"></script>
+<script src="animation.js"></script>
+<script src="assets/effects/particles.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

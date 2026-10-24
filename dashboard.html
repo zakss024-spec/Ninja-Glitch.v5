@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05030a">
+<title>NINJA GLITCH // DASHBOARD</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="assets/effects/scanlines.css">
+</head>
+<body class="scanlines" data-screen="dashboard">
+<canvas class="fx" id="fx"></canvas>
+
+<header class="top">
+  <button class="back" id="back" type="button" aria-label="Kembali" hidden>&#8592;</button>
+  <div class="brand neon-p" id="top-title">HOME</div>
+  <div class="chip"><span class="dot"></span><span class="mono" id="top-code">GUEST</span></div>
+</header>
+
+<main class="view" id="view" aria-live="polite"></main>
+
+<nav class="nav" aria-label="Navigasi utama">
+  <button type="button" data-nav="home"><img src="assets/icons/home.svg" alt="">HOME</button>
+  <button type="button" data-nav="glitch"><img src="assets/icons/glitch.svg" alt="">GLITCH</button>
+  <button type="button" data-nav="tools"><img src="assets/icons/tools.svg" alt="">TOOLS</button>
+  <button type="button" data-nav="settings"><img src="assets/icons/settings.svg" alt="">SETTINGS</button>
+</nav>
+
+<script src="storage.js"></script>
+<script src="animation.js"></script>
+<script src="assets/effects/particles.js"></script>
+<script src="navigation.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
